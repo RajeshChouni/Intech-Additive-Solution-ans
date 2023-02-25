@@ -1,0 +1,55 @@
+Yes, I can add a function min to a stack that executes in O(1) time complexity . One way to do this is to keep track of the minimum value in the stack as elements 
+are added and removed. Here is one possible implementation:
+
+import java.util.Stack;
+
+public class MinStack {
+    private Stack<Integer> stack;
+    private Stack<Integer> minStack;
+
+    public MinStack() {
+        stack = new Stack<Integer>();
+        minStack = new Stack<Integer>();
+    }
+
+    public void push(int x) {
+        stack.push(x);
+        if (minStack.isEmpty() || x <= minStack.peek()) {
+            minStack.push(x);
+        }
+    }
+
+    public int pop() {
+        if (stack.peek().equals(minStack.peek())) {
+            minStack.pop();
+        }
+        return stack.pop();
+    }
+
+    public int top() {
+        return stack.peek();
+    }
+
+    public int getMin() {
+        return minStack.peek();
+    }
+}
+
+
+In this implementation, maintain two stacks: stack holds the actual elements, and minStack keeps track of the minimum values. When a new element is pushed onto 
+the stack, I check if it is smaller than or equal to the current minimum (which is always stored at the top of minStack). If it is, I push it onto minStack as well.
+When an element is popped from the stack, I check if it is the current minimum, and if so, I remove it from minStack as well. The getMin function simply returns 
+the top element of minStack, which is always the current minimum value. All of these operations execute in O(1) time complexity, since only manipulating the tops of 
+the stacks.
+
+
+
+** Explain one real world use case where stack is better used data structure than arrays.
+-- One real world use case where a stack is a better choice than an array is when implementing the "undo" functionality in applications such as text editors, 
+graphic design software, and other productivity tools.In such applications, users frequently perform actions like typing, deleting, moving objects, changing 
+colors, etc. If the user wants to undo an action,the application needs to revert the most recent action and restore the previous state of the document.
+A stack data structure can be used to implement this functionality efficiently. Each time the user performs an action, the application can push the current
+state of the document onto the stack. If the user wants to undo an action, the application can simply pop the top element from the stack and restore the previous
+state. Using an array to implement undo functionality would be less efficient because it would require shifting all the elements in the array every time an undo
+operation is performed. Additionally, an array has a fixed size, so if the number of actions performed exceeds the size of the array, the application would need
+to allocate a larger array or implement a more complex resizing algorithm.
