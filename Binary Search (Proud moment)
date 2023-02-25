@@ -1,0 +1,31 @@
+Binary search is a search algorithm that works by repeatedly dividing the search interval in half. It is efficient for sorted arrays or lists, as it eliminates half of 
+the remaining elements at each iteration. Here's how binary search can be implemented in Java:
+
+public static int binarySearch(int[] arr, int key) {
+    int low = 0;
+    int high = arr.length - 1;
+
+    while (low <= high) {
+        int mid = (low + high) / 2;
+        if (arr[mid] < key) {
+            low = mid + 1;
+        } else if (arr[mid] > key) {
+            high = mid - 1;
+        } else {
+            return mid;
+        }
+    }
+
+    return -1;
+}
+
+
+In this code, arr is the sorted array to be searched, and key is the element to be found. The low and high variables represent the lower and upper bounds of the 
+search interval. The while loop continues until the search interval is empty, i.e., low is greater than high. In each iteration, the mid variable is set to the
+middle index of the search interval. If the middle element is less than the key, the search interval is updated to the upper half of the array by setting low 
+to mid + 1. If the middle element is greater than the key, the search interval is updated to the lower half of the array by setting high to mid - 1. If the 
+middle element is equal to the key, the function returns the index of the element. If the loop terminates without finding the key, the function returns -1.
+
+Binary search has a time complexity of O(log n) and is a very efficient way to search for an element in a sorted array.
+
+
