@@ -1,0 +1,20 @@
+Dot product and cross product are two fundamental mathematical operations used in vector algebra. In computer graphics, vectors are used to represent positions, 
+directions, and orientations of objects and elements in a scene. The dot product, also known as the scalar product, is a mathematical operation between two vectors
+that results in a scalar value. It is calculated by multiplying the magnitudes of the two vectors and the cosine of the angle between them. In graphics, the dot 
+product is often used in lighting calculations to determine the amount of light that a surface receives based on the angle between the light source and the surface 
+normal. It is also used in collision detection algorithms to check if two objects are intersecting by comparing their relative velocities.
+
+The cross product, also known as the vector product, is a mathematical operation between two vectors that results in a new vector that is perpendicular to both input vectors. The magnitude
+of the resulting vector is proportional to the area of the parallelogram formed by the two input vectors, and the direction of the resulting vector is determined by 
+the right-hand rule. In graphics, the cross product is used to calculate the normal of a surface, which is necessary for lighting calculations, shading, and collision
+detection. It is also used to calculate the direction of rotation between two vectors, which is important for animating objects and simulating physical systems.
+
+Regarding the bonus question, calculating the intersection between a ray and a plane, sphere, or triangle is an important operation in ray tracing and collision
+detection algorithms. Here are some resources that explain how to perform these calculations:
+
+Scratchapixel: Ray-plane intersection
+https://www.scratchapixel.com/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes/ray-plane-intersection
+Scratchapixel: Ray-sphere intersection
+https://www.scratchapixel.com/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes/ray-sphere-intersection
+Scratchapixel: Ray-triangle intersection
+https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-rendering-a-triangle/ray-triangle-intersection-geometric-solution
