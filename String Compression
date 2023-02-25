@@ -1,0 +1,43 @@
+This code is implementing a simple compression algorithm that compresses a string by replacing consecutive repeated characters with a single occurrence of the 
+character followed by the number of times it is repeated. For example, "aaaabbcddddd" becomes "a4b2c1d5".
+
+In terms of memory usage, the code does not use any dynamically allocated memory and the string is passed as a value to the function. The only memory used is that
+required by the string and the integer variables used to keep track of the repetition and index of the current character.
+
+I am comfortable in Java, In Java, the string is an immutable object, which means that it cannot be modified once it is created. Therefore, a different approach is needed to implement this
+algorithm in Java. One way to do this is to use a StringBuilder object to build the compressed string.
+
+Here is the modified code in Java that uses StringBuilder:
+
+
+public class StringCompression {
+    public static void compress(String s) {
+        StringBuilder sb = new StringBuilder();
+        int num = s.length();
+        int i = 0;
+        while (i < num) {
+            char c = s.charAt(i);
+            int repetition = 1;
+            while (i < num - 1 && s.charAt(i) == s.charAt(i + 1)) {
+                repetition++;
+                i++;
+            }
+            sb.append(c);
+            sb.append(repetition);
+            i++;
+        }
+        System.out.println(sb.toString());
+    }
+
+    public static void main(String[] args) {
+        String str = "aaaabbcddddd";
+        compress(str);
+    }
+}
+
+
+In this code, a StringBuilder object is used to build the compressed string. The character and its repetition count are appended to the StringBuilder object in each 
+iteration of the while loop. Finally, the compressed string is obtained by calling the toString() method on the StringBuilder object.
+
+This approach reduces the memory usage compared to the original code as it does not create any temporary string objects. The StringBuilder object allocates memory 
+dynamically as needed to store the compressed string.
